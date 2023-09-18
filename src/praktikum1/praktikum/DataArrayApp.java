@@ -18,10 +18,10 @@ public class DataArrayApp {
         // long searchKey = 2023003;
         // Mahasiswa mhs = arr.find(searchKey);
         // if (mhs != null) {
-        //     System.out.println("\nKetemu");
-        //     mhs.displayMhs();
+        // System.out.println("\nKetemu");
+        // mhs.displayMhs();
         // } else {
-        //     System.out.println("ga ketemu " + searchKey);
+        // System.out.println("ga ketemu " + searchKey);
         // }
 
         // searchKey = 2023009;

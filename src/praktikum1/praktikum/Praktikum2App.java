@@ -5,7 +5,7 @@ public class Praktikum2App {
         int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         Praktikum2 binary = new Praktikum2();
-        int result = binary.search(array, -11);
+        int result = binary.search(array, 11);
 
         if (result == -1) {
             System.out.println("Target Missing");

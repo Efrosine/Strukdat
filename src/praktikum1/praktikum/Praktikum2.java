@@ -8,13 +8,14 @@ public class Praktikum2 {
         atas = arr.length - 1;
 
         while (bawah <= atas) {
-            tengah = bawah + (atas - bawah) / 2;
+            // tengah = bawah + (atas - bawah) / 2;
+            tengah = (bawah + atas) / 2;
 
             System.out.println("bawah " + bawah + " tengah " + tengah + " atas " + atas);
             if (arr[tengah] == target) {
                 return tengah;
             }
-            if (arr[tengah] < target) {
+            if (target > arr[tengah]) {
 
                 bawah = tengah + 1;
             } else {
