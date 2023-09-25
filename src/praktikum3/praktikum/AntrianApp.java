@@ -3,7 +3,6 @@ package praktikum3.praktikum;
 public class AntrianApp {
     public static void main(String[] args) {
         String people[] = { "Andi", "Ahmad", "Satrio", "Afrizal", "Sukron", "Mahmud" };
-
         Queue theQueue = new Queue(4);
 
         System.out.println(">> beberapa mulai mengantri");
