@@ -1,4 +1,5 @@
 package praktikum3.pendahuluan;
+
 public class Queue {
     private int maxSize;
     private long[] quaArray;

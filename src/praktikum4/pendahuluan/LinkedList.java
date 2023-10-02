@@ -56,7 +56,7 @@ public class LinkedList {
     }
 
     public void displayList() {
-        System.out.println("list(first --> last :)");
+        System.out.println("list(first --> last) :");
         Link current = first;
         while (current != null) {
             current.displayLink();

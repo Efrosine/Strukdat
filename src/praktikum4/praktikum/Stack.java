@@ -22,18 +22,6 @@ public class Stack {
 
     }
 
-    public Record peek() {
-        return stackArray.find(top).Data;
-    }
-
-    public boolean isEmpty() {
-        return (top == -1);
-    }
-
-    public boolean isFull() {
-        return (top == maxSize);
-    }
-
     public void displayLink() {
         stackArray.displayList();
     }
