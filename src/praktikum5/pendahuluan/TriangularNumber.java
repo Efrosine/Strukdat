@@ -4,7 +4,7 @@ public class TriangularNumber {
     public int triangleIter(int n) {
         int result = 0;
         for (int i = n; i > 0; i--) {
-            // System.out.println("Inter -> " + result + " + " + i);
+            System.out.println("Iter -> " + result + " + " + i);
             result += i;
         }
         return result;
@@ -14,7 +14,7 @@ public class TriangularNumber {
         if (n == 1) {
             return 1;
         } else {
-            // System.out.println("Recur -> " + n + " + " + (n - 1));
+            System.out.println("Recur -> " + n + " + " + (n - 1));
             return n + triangleRecur(n - 1);
         }
     }
