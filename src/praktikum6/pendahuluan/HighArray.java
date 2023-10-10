@@ -3,7 +3,6 @@ package praktikum6.pendahuluan;
 public class HighArray {
     private int[] arr;
     private int nElement;
-    int nCompare = 0, nSwap = 0;
 
     public HighArray(int max) {
         arr = new int[max];
@@ -23,77 +22,6 @@ public class HighArray {
         System.out.println("");
     }
 
-    // ..... code high array sebelumnya
-    public void bubleSort() {
-        int batas, i;
-        for (batas = nElement - 1; batas > 0; batas--) {
-            // System.out.print("Cycle " + (nElement - batas) + " :\n");
-            for (i = 0; i < batas; i++) {
-                nCompare++;
-                if (arr[i] > arr[i + 1]) {
-                    nSwap++;
-                    swap(i, i + 1);
-                    // System.out.print("\t(" + arr[i] + "<>" + arr[i + 1] + ") ");
-                    // display();
-                }
-            }
-        }
-    }
-
-    public void bubleDecentSort() {
-        int batas, i;
-        for (batas = nElement - 1; batas > 0; batas--) {
-            for (i = 0; i < batas; i++) {
-                if (arr[i] < arr[i + 1]) {
-                    swap(i, i + 1);
-                }
-            }
-        }
-    }
-
-    void selectionSort() {
-        int awal, i, min;
-        for (awal = 0; awal < nElement - 1; awal++) {
-            min = awal;
-            // System.out.print("Cycle " + (awal + 1) + " :\n");
-            for (i = awal + 1; i < nElement; i++) {
-                if (arr[i] < arr[min]) {
-                    min = i;
-                }
-            }
-            swap(awal, min);
-            // System.out.print("\t(" + arr[awal] + "<>" + arr[min] + ") ");
-            // display();
-        }
-    }
-
-    void insertionSort() {
-        int i, curIn;
-        for (curIn = 1; curIn < nElement; curIn++) {
-            int temp = arr[curIn];
-            i = curIn;
-
-            System.out.println("Pergeseran " + arr[i]);
-            System.out.println("vvvvvvv");
-            while (i > 0 && arr[i - 1] >= temp) {
-                System.out.print("(" + arr[i - 1] + "<>" + arr[i] + ") ");
-                arr[i] = arr[i - 1];
-                display();
-                i--;
-            }
-            arr[i] = temp;
-            System.out.println("\nInsert " + temp);
-            display();
-            System.out.println("-----------------------");
-        }
-    }
-
-    public void swap(int one, int two) {
-        int temp = arr[one];
-        arr[one] = arr[two];
-        arr[two] = temp;
-    }
-
     public void shellSort() {
         int in, out;
         int temp;
@@ -108,8 +36,92 @@ public class HighArray {
                     in -= h;
                 }
                 arr[in] = temp;
+                display();
             }
             h /= 2;
         }
+    }
+
+    public void shellSortKnuth() {
+        int in, out;
+        int temp;
+        int h = 1;
+        while (h <= nElement / 3) {
+            h = 3 * h + 1;
+        }
+
+        while (h > 0) {
+            for (out = h; out < nElement; out++) {
+                temp = arr[out];
+                in = out;
+                while (in > h - 1 && arr[in - h] >= temp) {
+                    arr[in] = arr[in - h];
+                    in -= h;
+                }
+                arr[in] = temp;
+                display();
+            }
+            h = (h - 1) / 3;
+        }
+    }
+
+    public void swap(int one, int two) {
+        int temp = arr[one];
+        arr[one] = arr[two];
+        arr[two] = temp;
+    }
+
+    public void QuicSort() {
+        reqQuickSort(0, nElement - 1);
+    }
+
+    public void reqQuickSort(int batasKiri, int batasKanan) {
+        // if (batasKanan - batasKiri <= 0) {
+        // return;
+        // } else {
+        // int pivot = arr[batasKanan];
+        // int partisi = partitionIt(batasKiri, batasKanan, pivot);
+        // reqQuickSort(batasKiri, partisi - 1);
+        // reqQuickSort(partisi + 1, batasKanan);
+        // }
+        if (batasKiri < batasKanan) { // Memperbaiki pengujian kasus dasar
+            int pivot = choosePivot(batasKiri, batasKanan); // Pilih pivot dengan lebih cerdas
+            int partisi = partitionIt(batasKiri, batasKanan, pivot);
+            reqQuickSort(batasKiri, partisi - 1);
+            reqQuickSort(partisi + 1, batasKanan);
+        }
+    }
+
+    private int choosePivot(int batasKiri, int batasKanan) {
+        // Pilih pivot sebagai median of three (elemen pertama, tengah, dan terakhir)
+        int tengah = (batasKiri + batasKanan) / 2;
+        if (arr[batasKiri] > arr[batasKanan]) {
+            swap(batasKiri, batasKanan);
+        }
+        if (arr[tengah] < arr[batasKiri]) {
+            swap(tengah, batasKiri);
+        }
+        if (arr[batasKanan] < arr[tengah]) {
+            swap(batasKanan, tengah);
+        }
+        return arr[batasKanan];
+    }
+
+    private int partitionIt(int batasKiri, int batasKanan, int pivot) {
+        int indexKiri = batasKiri - 1;
+        int indexKanan = batasKanan + 1;
+
+        while (true) {
+            while (indexKiri < batasKanan && arr[++indexKiri] < pivot)
+                ;
+            while (indexKanan > batasKiri && arr[--indexKanan] > pivot)
+                ;
+            if (indexKiri >= indexKanan) {
+                break;
+            } else {
+                swap(indexKiri, indexKanan);
+            }
+        }
+        return indexKiri;
     }
 }
