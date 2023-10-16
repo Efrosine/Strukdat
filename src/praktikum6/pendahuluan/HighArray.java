@@ -38,6 +38,7 @@ public class HighArray {
                 arr[in] = temp;
                 display();
             }
+            System.out.println();
             h /= 2;
         }
     }
@@ -45,6 +46,7 @@ public class HighArray {
     public void shellSortKnuth() {
         int in, out;
         int temp;
+        // perubahan terjadi
         int h = 1;
         while (h <= nElement / 3) {
             h = 3 * h + 1;
@@ -61,6 +63,8 @@ public class HighArray {
                 arr[in] = temp;
                 display();
             }
+            System.out.println();
+            // perubahan terjadi
             h = (h - 1) / 3;
         }
     }
@@ -76,35 +80,14 @@ public class HighArray {
     }
 
     public void reqQuickSort(int batasKiri, int batasKanan) {
-        // if (batasKanan - batasKiri <= 0) {
-        // return;
-        // } else {
-        // int pivot = arr[batasKanan];
-        // int partisi = partitionIt(batasKiri, batasKanan, pivot);
-        // reqQuickSort(batasKiri, partisi - 1);
-        // reqQuickSort(partisi + 1, batasKanan);
-        // }
-        if (batasKiri < batasKanan) { // Memperbaiki pengujian kasus dasar
-            int pivot = choosePivot(batasKiri, batasKanan); // Pilih pivot dengan lebih cerdas
+        if (batasKanan - batasKiri <= 0) {
+            return;
+        } else {
+            int pivot = arr[batasKanan];
             int partisi = partitionIt(batasKiri, batasKanan, pivot);
             reqQuickSort(batasKiri, partisi - 1);
-            reqQuickSort(partisi + 1, batasKanan);
+            reqQuickSort(partisi, batasKanan);
         }
-    }
-
-    private int choosePivot(int batasKiri, int batasKanan) {
-        // Pilih pivot sebagai median of three (elemen pertama, tengah, dan terakhir)
-        int tengah = (batasKiri + batasKanan) / 2;
-        if (arr[batasKiri] > arr[batasKanan]) {
-            swap(batasKiri, batasKanan);
-        }
-        if (arr[tengah] < arr[batasKiri]) {
-            swap(tengah, batasKiri);
-        }
-        if (arr[batasKanan] < arr[tengah]) {
-            swap(batasKanan, tengah);
-        }
-        return arr[batasKanan];
     }
 
     private int partitionIt(int batasKiri, int batasKanan, int pivot) {
@@ -120,6 +103,7 @@ public class HighArray {
                 break;
             } else {
                 swap(indexKiri, indexKanan);
+                display();
             }
         }
         return indexKiri;
