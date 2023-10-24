@@ -204,4 +204,21 @@ public class Tree {
                     "......................................................");
         }
     }
+
+    public Node findMin() {
+        Node current = root;
+        while (current.leftChild != null) {
+            current = current.leftChild;
+        }
+        return current;
+    }
+
+    public Node findMax() {
+        Node current = root;
+        while (current.rightChild != null) {
+            current = current.rightChild;
+        }
+        return current;
+    }
+
 }

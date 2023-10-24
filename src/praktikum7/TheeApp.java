@@ -65,6 +65,17 @@ public class TheeApp {
                     value = getInt();
                     theTree.traverse(value);
                     break;
+                case 'n':
+                    System.out.print("Min value = ");
+                    theTree.findMin().displayNode();
+                    System.out.println();
+                    break;
+                case 'x':
+                    System.out.print("Max value = ");
+                    theTree.findMax().displayNode();
+                    System.out.println();
+                    break;
+
                 default:
                     System.out.println("Invalid entry ");
             }
