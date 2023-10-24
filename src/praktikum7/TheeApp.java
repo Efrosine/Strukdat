@@ -33,6 +33,10 @@ public class TheeApp {
                     System.out.print("Enter value and data to"
                             + " insert: ");
                     value = getInt();
+                    if (theTree.find(value) != null) {
+                        System.out.println("key sudah ada");
+                        break;
+                    }
                     data = getString();
                     theTree.insert(value, data);
                     break;
