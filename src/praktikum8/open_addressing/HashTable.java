@@ -81,9 +81,39 @@ public class HashTable {
         return null;
     }
 
+    public Data deleteNew(int key) {
+        int hashVal = hashFunc(key);
+        int startIndex = hashVal;
+        System.out.println("start" + startIndex);
+        do {
+            if (hashArray[hashVal].getKey() == key) {
+                Data temp = hashArray[hashVal];
+                hashArray[hashVal] = null;
+                return temp;
+            }
+            ++hashVal;
+            hashVal %= size;
+            System.out.println("hasVAl " + hashVal);
+        } while (hashVal != startIndex);
+        return null;
+    }
+
     public Data find(int key) {
         int hashVal = hashFunc(key);
         while (hashArray[hashVal] != null) {
+            if (hashArray[hashVal].getKey() == key) {
+                return hashArray[hashVal];
+            }
+            ++hashVal;
+            hashVal %= size;
+        }
+        return null;
+    }
+
+    public Data findNew(int key) {
+        int hashVal = hashFunc(key);
+        int startIndex = hashVal;
+        while (hashVal != startIndex) {
             if (hashArray[hashVal].getKey() == key) {
                 return hashArray[hashVal];
             }
