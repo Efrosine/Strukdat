@@ -14,4 +14,9 @@ public class Node {
     public void setKey(int key) {
         data = key;
     }
+
+    public String displayNode(int index) {
+        return "[" + data + "-" + index + "]";
+    }
+
 }

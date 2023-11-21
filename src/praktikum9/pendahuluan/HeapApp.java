@@ -16,7 +16,32 @@ public class HeapApp {
         HT.insert(85);
         HT.insert(105);
 
+        // soal 1
+        // HT.displayHeap();
+
+        // soal 2
+        // HT.displayHeapIndex();
+
+        // soal 3
         HT.displayHeap();
+        System.out.println("add 71");
+        HT.insert(71);
+        HT.displayHeap();
+        // System.out.println("add 520");
+        // HT.insert(520);
+        // HT.displayHeap();
+
+        // soal 4
+        // HT.displayHeap();
+        // System.out.println("remove " + HT.remove().getKey());
+        // HT.displayHeap();
+
+        // soal 5
+        // HT.displayHeap();
+        // System.out.println("change 115 to 61");
+        // HT.change(1, 61);
+        // HT.displayHeap();
+
         System.out.println(" ");
 
     }

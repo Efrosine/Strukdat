@@ -102,4 +102,58 @@ public class Heap {
         }
         System.out.println("\n" + dots + dots);
     }
+
+    public void displayHeapIndex() {
+        System.out.print("heapArray: ");
+        for (int m = 0; m < currentSize; m++) {
+            if (heapArray[m] != null) {
+                System.out.print(heapArray[m].displayNode(m) + " ");
+            } else {
+                System.out.print("-- ");
+            }
+        }
+        System.out.println();
+        int nBlanks = 32;
+        int itemsPerRow = 1;
+        int column = 0;
+        int j = 0;
+        String dots = "...............................";
+        System.out.println(dots + dots);
+        while (currentSize > 0) {
+            if (column == 0) {
+                for (int k = 0; k < nBlanks; k++) {
+                    System.out.print("  ");
+                }
+            }
+            System.out.print(heapArray[j].displayNode(j));
+            if (++j == currentSize) {
+                break;
+            }
+            if (++column == itemsPerRow) {
+                nBlanks /= 2;
+                itemsPerRow *= 2;
+                column = 0;
+                System.out.println();
+            } else {
+                for (int k = 0; k < nBlanks * 2 - 2; k++) {
+                    System.out.print("  ");
+                }
+            }
+        }
+        System.out.println("\n" + dots + dots);
+    }
+
+    public boolean change(int index, int newVal) {
+        if (index < 0 || index >= currentSize) {
+            return false;
+        }
+        int oldVal = heapArray[index].getKey();
+        heapArray[index].setKey(newVal);
+        if (oldVal < newVal) {
+            trickleUp(index);
+        } else {
+            trickleDown(index);
+        }
+        return true;
+    }
 }
