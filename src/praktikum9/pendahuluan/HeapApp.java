@@ -22,11 +22,11 @@ public class HeapApp {
         // soal 2
         // HT.displayHeapIndex();
 
-        // soal 3
-        HT.displayHeap();
-        System.out.println("add 71");
-        HT.insert(71);
-        HT.displayHeap();
+        // // soal 3
+        // HT.displayHeap();
+        // System.out.println("add 71");
+        // HT.insert(71);
+        // HT.displayHeap();
         // System.out.println("add 520");
         // HT.insert(520);
         // HT.displayHeap();
@@ -37,10 +37,10 @@ public class HeapApp {
         // HT.displayHeap();
 
         // soal 5
-        // HT.displayHeap();
-        // System.out.println("change 115 to 61");
-        // HT.change(1, 61);
-        // HT.displayHeap();
+        HT.displayHeap();
+        System.out.println("change 115 to 61");
+        HT.change(1, 61);
+        HT.displayHeap();
 
         System.out.println(" ");
 
