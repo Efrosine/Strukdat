@@ -51,8 +51,7 @@ public class Graph {
     }
 
     public void dfs() {
-        System.out.println("Visit by using" +
-                " DFS algorithm: ");
+        System.out.println("Visit by using DFS algorithm: ");
         vertexList[0].wasVisited = true;
         displayVertex(0);
 
@@ -69,9 +68,8 @@ public class Graph {
             }
         }
 
-        for (int i = 0; i < nVerts; i++) {
-            vertexList[i].wasVisited = false;
-        }
+        System.out.println();
+        resetFlags();
     }
 
     public int getAdjUnvisitedVertex(int v) {
